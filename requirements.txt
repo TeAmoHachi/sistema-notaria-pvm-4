@@ -1,0 +1,24 @@
+# ===== CORE FRAMEWORK =====
+streamlit==1.50.0
+
+# ===== GENERACIÓN DE DOCUMENTOS =====
+docxtpl==0.20.1
+num2words==0.5.14
+
+# ===== IMÁGENES Y RECURSOS =====
+pillow==11.3.0
+
+# ===== EXPORTACIÓN EXCEL (CRÍTICO - sin esto no funciona el export) =====
+xlsxwriter==3.2.0
+
+# ===== MANIPULACIÓN DE DATOS =====
+pandas==2.2.3
+
+# ===== PETICIONES HTTP (APIs RENIEC/UBIGEO) =====
+requests==2.32.3
+
+# ===== VARIABLES DE ENTORNO (para RENIEC_TOKEN) =====
+python-dotenv==1.0.1
+
+# ===== BÚSQUEDA SEMÁNTICA (Asistente IA) =====
+rapidfuzz==3.10.1

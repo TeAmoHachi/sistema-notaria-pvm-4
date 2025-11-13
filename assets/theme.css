@@ -1,0 +1,243 @@
+/* ===== Paleta ===== */
+:root{
+  --brand-gold: #C9A227;
+  --brand-gold-2: #B6901E;
+  --brand-burgundy: #7A142A;
+  --ink-1: #EAEAEA;
+  --ink-2: #CFCFCF;
+  --bg-0: #0F0F10;
+  --bg-1: #121212;
+  --bg-2: #1E1E1E;
+  --card: #FFFFFF;
+  --line: #652115;
+}
+
+/* ===== App & Sidebar ===== */
+.stApp { background: var(--bg-1); }
+
+[data-testid="stSidebar"] {
+  background: var(--bg-2);
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+[data-testid="stSidebar"] .stButton>button {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  font-weight: 600;
+}
+
+/* ===== Títulos ===== */
+h1, h2, h3, h4 { letter-spacing: .3px; }
+h1 { font-weight: 800; }
+h2 { font-weight: 700; }
+
+.app-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: .4px;
+  color: var(--ink-1);
+}
+.app-subtitle {
+  color: var(--ink-2);
+  margin-top: .25rem;
+}
+
+/* ===== Botones (EXCLUYE botones del chat) ===== */
+.stButton > button:not(.chat-send-button) {
+  background: linear-gradient(180deg, var(--brand-gold), var(--brand-gold-2));
+  color: #111;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: .6rem 1.1rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.stButton > button:not(.chat-send-button):hover { 
+  filter: brightness(1.07); 
+  transform: translateY(-1px); 
+}
+.stButton > button:not(.chat-send-button):active { 
+  transform: translateY(0); 
+}
+
+/* Botón "Anular" */
+.stButton > button[aria-label*="anular" i]{
+  background: var(--danger-600);
+  border: 1px solid var(--danger-500);
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset, 0 2px 6px rgba(0,0,0,.25);
+}
+.stButton > button[aria-label*="anular" i]:hover{
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+.stButton > button[aria-label*="anular" i]:active{
+  transform: translateY(0);
+}
+
+/* ===== Tarjetas claras para formularios ===== */
+section.main .block-container > div[data-testid="stVerticalBlock"] {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 18px 16px;
+  margin-bottom: 16px;
+}
+
+section.main .block-container > div[data-testid="stVerticalBlock"] h1,
+section.main .block-container > div[data-testid="stVerticalBlock"] h2,
+section.main .block-container > div[data-testid="stVerticalBlock"] h3 {
+  color: var(--fg-strong);
+  margin-top: 0.25rem;
+}
+
+.card {
+  background: var(--card);
+  color: #1b1b1b;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 18px 8px 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  margin: 6px 0 14px 0;
+}
+
+/* ===== Inputs CLAROS (por defecto TODOS blancos) ===== */
+div[data-baseweb="input"] input,
+textarea,
+.stTextInput input,
+.stNumberInput input,
+.stDateInput input,
+.stTextArea textarea {
+  background: #FFFFFF !important;
+  color: #111 !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,.02) inset !important;
+}
+
+div[data-baseweb="select"] > div {
+  background: #FFFFFF !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 10px !important;
+  color: #111 !important;
+}
+
+label, .stSelectbox label, .stTextInput label, .stDateInput label {
+  color: var(--ink-2) !important;
+  font-weight: 600;
+}
+
+/* ===== Expanders ===== */
+details[data-testid="stExpander"] {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+details[data-testid="stExpander"] summary {
+  background: linear-gradient(180deg, #fff, #fafafa);
+  padding: 16px;
+  font-weight: 700;
+  color: #2b2b2b;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ===== Tablas ===== */
+.stTable, .stDataFrame {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.stDataFrame [class*="row_heading"] { color: #555; }
+
+/* ===== Alertas ===== */
+.stAlert {
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+/* Placeholder */
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder {
+  color: #797979;
+  opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎯 BUSCADORES DNI EN CELESTE (MÁXIMA ESPECIFICIDAD)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Input DNI del Padre - FUERZA TOTAL */
+input[type="text"][aria-label="DNI del Padre"],
+input[aria-label="DNI del Padre"][inputmode="text"],
+.stTextInput input[aria-label="DNI del Padre"] {
+    background-color: #c9e7f5 !important;
+    color: #002c44 !important;
+    border: 2px solid #9edaff !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+/* Input DNI de la Madre - FUERZA TOTAL */
+input[type="text"][aria-label="DNI de la Madre"],
+input[aria-label="DNI de la Madre"][inputmode="text"],
+.stTextInput input[aria-label="DNI de la Madre"] {
+    background-color: #c9e7f5 !important;
+    color: #002c44 !important;
+    border: 2px solid #9edaff !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+/* Input Doc. MENOR - FUERZA TOTAL */
+input[type="text"][aria-label="Doc. MENOR"],
+input[aria-label="Doc. MENOR"][inputmode="text"],
+.stTextInput input[aria-label="Doc. MENOR"] {
+    background-color: #c9e7f5 !important;
+    color: #002c44 !important;
+    border: 2px solid #9edaff !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+/* Hover para los 3 buscadores */
+input[type="text"][aria-label="DNI del Padre"]:hover,
+input[type="text"][aria-label="DNI de la Madre"]:hover,
+input[type="text"][aria-label="Doc. MENOR"]:hover {
+    background-color: #c3eaff !important;
+    border-color: #3ea7e9 !important;
+}
+
+/* Focus (clic activo) para los 3 buscadores */
+input[type="text"][aria-label="DNI del Padre"]:focus,
+input[type="text"][aria-label="DNI de la Madre"]:focus,
+input[type="text"][aria-label="Doc. MENOR"]:focus {
+    background-color: #b5e4ff !important;
+    border-color: #1b8fe2 !important;
+    box-shadow: 0 0 0 3px rgba(27,143,226,.25) !important;
+    outline: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🔐 EXCLUSIÓN: Input del Asistente IA (mantiene estilo oscuro)
+   ═══════════════════════════════════════════════════════════════════ */
+.stTextInput input[placeholder*="lenguaje natural"],
+.stTextInput input[placeholder*="consulta"] {
+  background: #1e1e1e !important;
+  color: #ffffff !important;
+  border: 2px solid #d4af37 !important;
+}
+
